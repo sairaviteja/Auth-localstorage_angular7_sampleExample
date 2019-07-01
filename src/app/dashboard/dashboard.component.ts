@@ -14,11 +14,12 @@ export class DashboardComponent implements OnInit {
   id;
    
   constructor(private router:Router, private auth:AuthService) { }
-
+        
   ngOnInit() {
     this.id=localStorage.getItem('token');
   }
-  
+
+
    logout(){
           console.log("you are logged out");
           this.auth.logout();

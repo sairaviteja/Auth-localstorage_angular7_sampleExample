@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
  
+  temp:boolean;
   model: ILogin ={
-        userId:"admin",
+        userId:"teja",
         password:"admin@123"
   }
 
@@ -28,18 +29,19 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
         this.loginForm=this.formBuilder.group({
-            userid:['',Validators.required],
+            username:['',Validators.required],
             password:['',Validators.required]
+            
         });
          this.returnUrl="/dashboard";
          this.authService.logout();  
-  }
+  } 
 
   get f(){ return this.loginForm.controls;}
 
   login(){
       
-    if(this.loginForm.invalid)
+    /* if(this.loginForm.invalid)
        return;
     else{
          if(this.f.userid.value == this.model.userId && this.f.password.value == this.model.password){
@@ -52,7 +54,23 @@ export class LoginComponent implements OnInit {
          else{
            this.message="PLease enter correct useId and password..!";
          }
-    }   
+    } */   
+
+      /* let temp= this.authService.login(this.f.name.value,this.f.salary.value,this.f.age.value);
+       if(temp){
+         console.log("Login success..");
+         this.router.navigate([this.returnUrl])
+       }*/
+
+       this.authService.login(this.f.username.value,this.f.password.value).subscribe(response =>(
+            this.temp = response
+                
+       ))
+         console.log("the  temo value is "+this.temp); 
+       if(this.temp){
+        console.log("Login success..");
+        this.router.navigate([this.returnUrl])
+       }
 
 
   }
