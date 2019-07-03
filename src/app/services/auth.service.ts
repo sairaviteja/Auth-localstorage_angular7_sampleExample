@@ -7,6 +7,6 @@ export class AuthService {
       constructor() { }
       logout(){
         localStorage.setItem('isLoggedIn','false');
-        localStorage.removeItem('token');
+        //localStorage.removeItem('token');
       }
 }
