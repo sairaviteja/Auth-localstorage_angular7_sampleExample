@@ -9,12 +9,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { RegistateComponent } from './registate/registate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    WelcomePageComponent,
+    RegistateComponent
   ],
   imports: [
     JwtModule.forRoot({

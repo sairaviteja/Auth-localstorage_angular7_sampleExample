@@ -16,9 +16,16 @@ export class DashboardComponent implements OnInit {
   constructor(private router:Router, private auth:AuthService) { }
         
   ngOnInit() {
-    this.id=localStorage.getItem('token');
+    //this.id=localStorage.getItem('loggedUser');
+    let user = JSON.parse(localStorage.getItem("loggedUser"));
+    this.id = user.name; 
   }
 
+  show:boolean = false;
+  dashboard(){
+        this.show = true;
+        
+  }
 
    logout(){
           console.log("you are logged out");

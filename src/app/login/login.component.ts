@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   get f(){ return this.loginForm.controls;}
 
   login(){
-      
+       
     /* if(this.loginForm.invalid)
        return;
     else{
@@ -62,16 +62,10 @@ export class LoginComponent implements OnInit {
          this.router.navigate([this.returnUrl])
        }*/
 
-       this.authService.login(this.f.username.value,this.f.password.value).subscribe(response =>(
-            this.temp = response
-                
-       ))
-         console.log("the  temo value is "+this.temp); 
-       if(this.temp){
-        console.log("Login success..");
-        this.router.navigate([this.returnUrl])
-       }
-
+       this.authService.login(this.f.username.value,this.f.password.value).subscribe(response => {
+                this.router.navigate([this.returnUrl]);
+       })
+       
 
   }
 
